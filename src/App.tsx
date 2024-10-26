@@ -13,13 +13,13 @@ import Page404 from './pages/404';
 function ConditionalNavbar(props: React.PropsWithChildren) {
   const location = useLocation();
 
-  if(location.pathname !== "/") {
+  if (location.pathname !== "/") {
     return <>
       <Navbar />
       {props.children}
     </>
   }
-  
+
   return props.children
 }
 
@@ -33,11 +33,11 @@ function App() {
           <Route path='/about' element={<About />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
           <Route path='/gallery' element={<MyArt />}></Route>
-          
+
           <Route path='*' element={<Page404 />}></Route>
         </Routes>
         <Footer />
-    </ConditionalNavbar>
+      </ConditionalNavbar>
     </Router>
   )
 }

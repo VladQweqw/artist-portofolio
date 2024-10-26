@@ -29,15 +29,17 @@ a {
 
 body {
   font-family: "Inria Serif", serif;
+  overflow-x: hidden;
 }
 
 #root {
-  min-height: calc(100dvh - 90px);
+  min-height: calc(100dvh - 180px);
 }
 
 .article {
   padding: clamp(0.25rem, 1vw, 1rem);
   margin: 2rem 0;
+  min-height: calc(100dvh - 90px - 4rem - 90px);
 }
 
 ::-moz-selection {
@@ -127,6 +129,46 @@ body {
 }
 .navbar .logo {
   cursor: pointer;
+  text-align: center;
+}
+
+.footer {
+  width: 100%;
+  border-top: 1px solid #000000;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem 2rem;
+  align-items: center;
+  height: 90px;
+}
+.footer .contacts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: right;
+  gap: 2rem;
+}
+.footer .contacts .contact-form a {
+  color: #EA8E3E;
+}
+.footer h2 {
+  text-decoration: underline;
+  text-align: right;
+  cursor: pointer;
+}
+.footer .footer-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.footer .footer-section:nth-child(2) {
+  align-items: flex-end;
+}
+.footer #trademark {
+  color: #000000;
+  opacity: 0.75;
   text-align: center;
 }
 

@@ -1,0 +1,48 @@
+.footer {
+    width: 100%;
+    border-top: 1px solid $black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: .5rem 2rem;
+    align-items: center;
+    height: 90px;
+
+    .contacts {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: right;
+        gap: 2rem;
+
+        .contact-form {
+           a {
+             color: $accent;
+           }
+        }
+    }
+    
+    h2 {
+        text-decoration: underline;
+        text-align: right;
+        cursor: pointer;
+    }
+
+    
+    .footer-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .footer-section:nth-child(2) {
+        align-items: flex-end;
+    }
+
+    #trademark {
+        color: $black;
+        opacity: .75;
+        text-align: center;
+    }
+}

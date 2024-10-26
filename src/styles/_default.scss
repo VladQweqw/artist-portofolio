@@ -29,16 +29,19 @@ a {
 
 body {
     font-family: $ff-main;
+    overflow-x:hidden;
 }
 
 #root {
-    min-height: calc(100dvh - 90px);
+    min-height: calc(100dvh - 180px);
 
 }
 
 .article {
     padding: clamp(.25rem, 1vw, 1rem);
     margin: 2rem 0;
+    min-height: calc(100dvh - 90px - 4rem - 90px);
+
 }
 
 ::selection {
