@@ -7,6 +7,8 @@ import About from './pages/about';
 import Contact from './pages/contact';
 
 import Footer from './components/footer';
+import MyArt from './pages/myart';
+import Page404 from './pages/404';
 
 function ConditionalNavbar(props: React.PropsWithChildren) {
   const location = useLocation();
@@ -30,8 +32,9 @@ function App() {
           <Route path='/' element={<Home />}></Route>
           <Route path='/about' element={<About />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
+          <Route path='/gallery' element={<MyArt />}></Route>
           
-          {/* <Route path='*' element={404}></Route> */}
+          <Route path='*' element={<Page404 />}></Route>
         </Routes>
         <Footer />
     </ConditionalNavbar>
