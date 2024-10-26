@@ -53,14 +53,32 @@ body {
 
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: $white;
 }
 
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: $accent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: $secondary-color;
+}
+
+.btn {
+    padding: .75rem;
+    font-size: 1.15rem;
+    cursor: pointer;
+    width: 100%;
+    background-color: $secondary-color;
+    border: 2px solid $black;
+    transition: 100ms ease-in-out;
+
+    &:hover {
+        background-color: $accent;
+    }
+
+    &:active {
+        scale: .95;
+    }
 }
