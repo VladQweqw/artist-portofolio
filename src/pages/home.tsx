@@ -26,6 +26,6 @@ export default function Home() {
       {isLoading ? <p>Loading...</p> : ""}
       {error ? <p>Error ocucred...</p> : ""}
       {data?.length ? <Gallery data={data} /> : ""}
-     
+
    </>)
 }

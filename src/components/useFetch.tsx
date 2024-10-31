@@ -12,49 +12,49 @@ export default function useFetch(options: {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [data, setData] = useState<any>(null)
     const [error, setError] = useState<string | null>(null)
-    
-    if(options) {
+
+    if (options) {
         options.url = endpoint + options.url
     }
 
     useEffect(() => {
-        if(options) {
+        if (options) {
             setIsLoading(true)
 
             axios(options).then((resp) => {
                 const data = resp.data
-                setData(data)            
+                setData(data)
                 setIsLoading(false)
             })
-            .catch((err) => {
-                setError(`Error: ${err}`)
-            }) 
-            .finally(() => setIsLoading(false))
+                .catch((err) => {
+                    setError(`Error: ${err}`)
+                })
+                .finally(() => setIsLoading(false))
         }
-        
+
     }, [])
 
-    
+
     function call(options: {
         method: 'POST' | 'GET' | 'PUT' | 'DELETE',
         url: string,
         data: never | object,
-        headers: any 
+        headers: any
     }) {
         setIsLoading(true)
         options.url = endpoint + options.url
-        
+
         axios(options).then((resp) => {
             const data = resp.data
-            setData(data)            
+            setData(data)
             setIsLoading(false)
         })
-        .catch((err) => {
-            setError(`Error: ${err}`)
-        }) 
-        .finally(() => setIsLoading(false))
+            .catch((err) => {
+                setError(`Error: ${err}`)
+            })
+            .finally(() => setIsLoading(false))
     }
 
 
-    return {data, isLoading, error, call}
+    return { data, isLoading, error, call }
 }

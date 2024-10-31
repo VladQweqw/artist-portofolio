@@ -4,9 +4,9 @@ export default function ArticleWrapper(props: {
     class: string
 }) {
 
-   return(
-    <article className={`article ${props.class}`}>
-        {props.children}
-    </article>
-   )
+    return (
+        <article className={`article ${props.class}`}>
+            {props.children}
+        </article>
+    )
 }

@@ -7,7 +7,6 @@ import About from './pages/about';
 import Contact from './pages/contact';
 
 import Footer from './components/footer';
-import MyArt from './pages/myart';
 import Page404 from './pages/404';
 import Login from './pages/login';
 import Signup from './pages/signup';
@@ -38,7 +37,6 @@ function App() {
           <Route path='/signup' element={<Signup />}></Route>
           <Route path='/account' element={<Account />}></Route>
           <Route path='/contact' element={<Contact />}></Route>
-          <Route path='/gallery' element={<MyArt />}></Route>
 
           <Route path='/pieces/:id' element={<PiecePage />}></Route>
           <Route path='/users/:id' element={<About />}></Route>

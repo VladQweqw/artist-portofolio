@@ -3,7 +3,7 @@ import { useEffect } from "react"
 
 export default function Page404() {
     const navigate = useNavigate()
-    
+
     useEffect(() => {
         navigate('/')
     }, [])
