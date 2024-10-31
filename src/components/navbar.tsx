@@ -18,11 +18,6 @@ export default function Navbar() {
             <div className="navbar-section">
                 <div
                     className="nav-item"
-                    onClick={() => navigate("")}
-                >FAQ</div>
-
-                <div
-                    className="nav-item"
                     onClick={() => navigate("/contact")}
                 >Contact</div>
             </div>
@@ -43,10 +38,7 @@ export default function Navbar() {
                         onClick={() => navigate("/signup")}
                     >Sign up</div>
                 }
-                <div
-                    className="nav-item"
-                    onClick={() => navigate(`/signup`)}
-                >Sign up</div>
+   
             </div>
         </div>
     )

@@ -132,6 +132,11 @@ body {
   text-align: center;
 }
 
+@media screen and (max-width: 600px) {
+  .navbar {
+    gap: 1rem;
+  }
+}
 .footer {
   width: 100%;
   border-top: 1px solid #000000;
@@ -172,6 +177,11 @@ body {
   text-align: center;
 }
 
+@media screen and (max-width: 600px) {
+  .footer .contacts {
+    display: none;
+  }
+}
 .quote {
   width: 100%;
   height: calc(100dvh - 90px);
@@ -378,11 +388,6 @@ body {
   .about-wrapper {
     grid-template-columns: auto;
     text-align: center;
-  }
-  .about-wrapper .about-image-wrapper {
-    max-height: 500px;
-    margin: 0 auto;
-    width: 80%;
   }
 }
 .form {

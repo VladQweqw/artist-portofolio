@@ -46,3 +46,11 @@
         text-align: center;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .footer {
+       .contacts {
+        display: none;
+       }
+    }
+}

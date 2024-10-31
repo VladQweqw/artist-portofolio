@@ -53,3 +53,9 @@
     }
 
 }
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        gap: 1rem;
+    }
+}
