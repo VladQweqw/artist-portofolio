@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="footer-section">
             <h2
             onClick={() => navigate('/contact')}
-            >Let's talk</h2>
+            >Contact</h2>
         </div>
         
     </div>

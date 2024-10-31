@@ -10,7 +10,7 @@ export default function Signup() {
     const form = useRef<null | HTMLFormElement>(null)
     const navigate = useNavigate()
 
-    const { data, isLoading, error, getData } = useFetch("auth/signup", {}, false)
+    const { data, isLoading, error, call } = useFetch()
 
     function signupHandler() {        
         const formData = new FormData()
@@ -19,11 +19,13 @@ export default function Signup() {
         formData.append('name', form.current!.username.value)
         formData.append('image_of_artist', "noimage")
         
-        getData("auth/register", {
+        call({
             method: "POST",
-            body: formData,
-        
+            data: formData,
+            url: "auth/register",
+           headers: {
             credentials: 'include',
+           }
         })
         
     }
@@ -32,7 +34,7 @@ export default function Signup() {
         console.log(data, error);
         
         if(data) {
-            // navigate('/login')
+            navigate('/login')
         }
 
     }, [data, error])

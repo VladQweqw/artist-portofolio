@@ -10,11 +10,12 @@ export default function Login() {
     const form = useRef<null | HTMLFormElement>(null)
     const navigate = useNavigate()
 
-    const { data, isLoading, error, getData } = useFetch("auth/login", {}, false)
+    const { data, isLoading, error, call } = useFetch()
 
     function setUserStatus() {
         if(data?.access_token) {
             sessionStorage.setItem('isUser', JSON.stringify(true))
+            sessionStorage.setItem('token', JSON.stringify(data?.access_token))
             navigate('/')
         }else {
             sessionStorage.setItem('isUser', JSON.stringify(false))
@@ -27,19 +28,19 @@ export default function Login() {
         formData.append('password', form.current!.pwd.value)
         formData.append('email', form.current!.email.value)
         
-        getData("auth/login", {
+        call({
+            url: "auth/login",
             method: "POST",
-            body: formData,
-        
-            credentials: 'include',
+            data: formData,
+            headers: {
+                credentials: 'true'
+            }
 
         })
 
     }
 
-    useEffect(() => {
-        console.log(data, error);
-        
+    useEffect(() => {                
         setUserStatus()
     }, [data, error])
     

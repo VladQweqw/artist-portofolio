@@ -18,8 +18,8 @@ export default function Navbar() {
             <div className="navbar-section">
                 <div 
                 className="nav-item"
-                onClick={() => navigate("/about")}
-                >About me</div>
+                onClick={() => navigate("")}
+                >FAQ</div>
 
                 <div 
                 className="nav-item"
@@ -35,7 +35,7 @@ export default function Navbar() {
                 {isLogged ? 
                 <div 
                 className="nav-item"
-                onClick={() => navigate("/account")}
+                onClick={() => navigate(`/account`)}
                 >Account</div>
                 : 
                 <div 
@@ -43,10 +43,10 @@ export default function Navbar() {
                 onClick={() => navigate("/signup")}
                 >Sign up</div>
                 }
-                <div 
+                 <div 
                 className="nav-item"
-                onClick={() => navigate("/gallery")}
-                >My art</div>
+                onClick={() => navigate(`/signup`)}
+                >Sign up</div>
             </div>
         </div>
     )

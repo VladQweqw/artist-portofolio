@@ -1,25 +1,77 @@
 import ArticleWrapper from "../components/ArticleWrapper";
 import Title from "../components/headerTitle";
-export default function About() {
+import useFetch, { endpoint } from "../components/useFetch";
+import { useParams } from "react-router";
 
+import Gallery from "../components/galley";
+
+export default function About() {
+    const { id } = useParams();
+        
+    const {data, isLoading, error }: {
+        data: UserType,
+        isLoading: boolean,
+        error: string | null
+    } = useFetch({
+        method: "GET",
+        url: `user/${id}`,
+        headers: {},
+        data: {},
+    })
+
+
+    
+    if(isLoading) return <h1>Loading...</h1>
+    if(error) return <h1>Error occured..</h1>
+    if(data)
     return (
         <ArticleWrapper class="about">
-            <Title>Me & Myself</Title>
+            
+            <Title>{data?.name}</Title>
 
             <div className="about-wrapper">
                 <div className="about-image-wrapper">
                     <img
-                        src="https://plus.unsplash.com/premium_photo-1677171381965-21f49e739991?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Mario etc"
+                       src={`${endpoint + data.image_of_artist.slice(1)}`}
+                       onError={(e) => {
+                           (e.target as HTMLImageElement).src = `https://i0.wp.com/digitalhealthskills.com/wp-content/uploads/2022/11/3da39-no-user-image-icon-27.png?fit=500%2C500&ssl=1`
+                       }} 
+                        alt={data.email}
                         loading="lazy"
                         className="photo-of-me" />
+
                 </div>
-                <div className="description">
-                    <p>I'm Mario, a digital artist who loves bringing creative ideas to life through digital tools like Photoshop, Procreate, and Blender.</p>
-                    <p>My work spans from detailed illustrations to bold concept art and immersive 3D designs. I enjoy experimenting with styles and themes, blending realism with imagination to create something uniquely personal.</p>
-                    <p>For me, digital art is all about pushing creative boundaries and expressing my vision in new and exciting ways.</p>
-                </div>
+                <a href={`mailto:${data.email}`}>Email me: {data.email}</a>
+            </div>
+
+            <div className="gallery-wrapper">
+                <UserWork id={id} />
             </div>
         </ArticleWrapper>
     )
+}
+
+
+function UserWork(user: {
+    id: string | undefined
+}) {
+    const {data, isLoading, error }: {
+        data: ArtPieceType[],
+        isLoading: boolean,
+        error: string | null
+    } = useFetch({
+        method: "GET",
+        url: `pieces/user/${user.id}`,
+        headers: {},
+        data: {},
+    })
+
+    if(isLoading) return <h1>Loading...</h1>
+    if(error) return <h1>Error occured..</h1>
+    
+    if(data?.length && !isLoading && !error)
+    return <>
+        {data?.length && <Gallery title="My work" data={data} />}
+    </> 
+    
 }
